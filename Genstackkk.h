@@ -7,7 +7,7 @@
 #include <ctype.h>
 #include <string>
 using namespace std;
-template <class Type>
+template <class Type> //combines both the .cpp and header together and allows the program to determine type when input.
 class GenStack
 {
 private:
@@ -17,14 +17,12 @@ private:
 public:
   GenStack(int size);//overloaded constructor
   ~GenStack();//destructor
-  void Push(Type data);
-  Type Pop();
-  Type Peek();
-  bool isFull();
-  bool isEmpty();
-  int getSize();
-  void increaseSize();
-  //is a pointer-reference or adddress
+  void Push(Type data); //adding value to stack
+  Type Pop(); //deleting top data value
+  Type Peek();//looking at the top data value
+  bool isFull();//checking if stack is full
+  bool isEmpty();//checking if stack is empty
+  void increaseSize();//dynamically increase size of stack array
 };
 
 template<typename Type>
@@ -55,10 +53,7 @@ Type GenStack<Type>::Pop()
           }
 }
 
-template<typename Type>
-int GenStack<Type>::getSize(){
-  return this -> size;
-}
+
 
 template<typename Type>
 GenStack<Type>::~GenStack(){ //deletes memory and array
@@ -88,9 +83,9 @@ bool GenStack<Type>::isEmpty(){
 template<typename Type>
 void GenStack<Type>::increaseSize(){
   size = size *5;
-  Type resizedArray = new Type(size);
+  Type resizedArray = new Type(size); //creates dynamic array
   for(int i = 0; i <size;i++){
-    resizedArray[i]= stackPtr[i];
+    resizedArray[i]= stackPtr[i]; //putting data from original array into dynamic array.
   }
   stackPtr = resizedArray;
   }
