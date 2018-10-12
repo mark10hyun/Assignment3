@@ -34,7 +34,7 @@ if (cppFileName.is_open()){
    }
 
 
-else  if(line[i]=='}' || line[i]==']'|| line[i]==')')
+else  if(line[i]=='}' || line[i]==']'|| line[i]==')')//condition is used for validing closing bracket with the char that was pushed.
      {
 
       if(syntaxStack.Peek()=='[' && line[i]==']'){
