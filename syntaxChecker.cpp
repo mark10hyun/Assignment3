@@ -9,25 +9,25 @@
 using namespace std;
 
 
-syntaxError::syntaxError(){
+syntaxError::syntaxError(){//default constructor
 }
-syntaxError::~syntaxError(){
+syntaxError::~syntaxError(){ //destructor
 }
 
 
 void syntaxError::openDelimiters(string syntaxFile){
 GenStack<char> syntaxStack(300);//declaring stack talk to daniel about it
-ifstream cppFileName (syntaxFile);
+ifstream cppFileName (syntaxFile);//reader file
 string line;
 
 if (cppFileName.is_open()){
  while(getline(cppFileName,line)){
-   lineCount++;
+   lineCount++;//counts number of lines in file
 
     //continues to read through everyline of file
    for(int i=1; i<line.size(); i++){
-     totalElements++;
- if((line[i] == '{' )|| (line[i] == '[')||(line[i]=='('))
+     totalElements++; //counts how many characters there are total for location for user.
+ if((line[i] == '{' )|| (line[i] == '[')||(line[i]=='('))//pushes only the opening delimiters
    {
      syntaxStack.Push(line[i]);
      openDelimCount++;

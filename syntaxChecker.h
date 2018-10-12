@@ -10,7 +10,7 @@ using namespace std;
 class syntaxError{
   private:
     string cppFile;
-public:
+public: //declaring all variables in my .cpp file
   int lineCount;
   int openDelimCount;
   int closedDelimCount;

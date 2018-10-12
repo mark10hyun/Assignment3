@@ -17,7 +17,7 @@ string cppFile=" ";
 
   cout<<"What file would you like to check for syntax errors?"<<endl;
   cin>> cppFile;
-  syntaxError errorCheck;
+  syntaxError errorCheck;//creating class object
   errorCheck.openDelimiters(cppFile);
 return 0;
 }
